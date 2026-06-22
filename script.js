@@ -43,7 +43,12 @@ fetch('data/education.json')
         data.forEach(item => {
             const kartu = document.createElement('div');
             kartu.className = 'kartu-riwayat';
+            
+            // Mengecek apakah ada gambar logo di JSON
+            const gambarLogo = item.logo ? `<img src="${item.logo}" class="logo-pendidikan">` : '';
+
             kartu.innerHTML = `
+                ${gambarLogo}
                 <h4>${item.institution}</h4>
                 <h5>${item.degree} | ${item.period}</h5>
             `;
