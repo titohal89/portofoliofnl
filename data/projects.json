@@ -2,19 +2,19 @@
   {
     "title": "Optimasi Efisiensi AC Berbasis IoT",
     "year": "2025",
-    "image": "images/ikon-ac.png",
+    "image": "images/ikon-ac.svg",
     "description": "Merancang ekosistem cerdas menggunakan mikrokontroler ESP32 untuk memantau dan mengoptimalkan efisiensi energi pada mesin pendingin ruangan (AC). Proyek ini memanfaatkan pembacaan sensor arus untuk melacak konsumsi daya secara presisi dan melakukan penyesuaian operasional secara otomatis guna menekan pemborosan energi."
   },
   {
     "title": "Sistem Monitoring Water Level (GUI MATLAB)",
     "year": "2024",
-    "image": "images/ikon-water.png",
+    "image": "images/ikon-water.svg",
     "description": "Mengembangkan sistem pemantauan ketinggian air secara real-time yang difokuskan pada proses akuisisi data presisi. Data pembacaan sensor diteruskan dan divisualisasikan menggunakan antarmuka grafis (GUI) interaktif yang dibangun dengan MATLAB untuk mempermudah analisis serta pemantauan parameter level air."
   },
   {
     "title": "Sistem Akses Keamanan Palang Pintu (RFID)",
     "year": "2024",
-    "image": "images/ikon-rfid.png",
+    "image": "images/ikon-rfid.svg",
     "description": "Membangun sistem keamanan kontrol akses gerbang otomatis berbasis Radio Frequency Identification (RFID). Proyek ini mengintegrasikan mikrokontroler dengan aktuator mekanik untuk mengontrol pergerakan palang pintu secara otomatis begitu tag ID terverifikasi, memastikan hanya entitas yang memiliki izin yang dapat mengakses suatu area."
   },
   {
