@@ -16,11 +16,5 @@
     "year": "2024",
     "image": "images/ikon-rfid.svg",
     "description": "Membangun sistem keamanan kontrol akses gerbang otomatis berbasis Radio Frequency Identification (RFID). Proyek ini mengintegrasikan mikrokontroler dengan aktuator mekanik untuk mengontrol pergerakan palang pintu secara otomatis begitu tag ID terverifikasi, memastikan hanya entitas yang memiliki izin yang dapat mengakses suatu area."
-  },
-  {
-    "title": "Sistem Kendali Keseimbangan Lengan (Balancing Arm PID)",
-    "year": "2026",
-    "image": "images/ikon-pid.svg",
-    "description": "Menerapkan teori kendali otomasi dengan mengimplementasikan algoritma Proportional-Integral-Derivative (PID) pada perangkat lengan penyeimbang (balancing arm). Desain mekanik sistem ini memanfaatkan konfigurasi dua motor—satu menghadap ke atas dan satu menghadap ke bawah, dengan putaran CW dan CCW—untuk menciptakan gaya dorong yang saling melengkapi. Kontroler PID secara dinamis membaca data kemiringan dan mengatur kecepatan kedua motor tersebut agar lengan dapat mencapai dan mempertahankan titik keseimbangan (setpoint) dengan presisi tinggi."
   }
 ]
