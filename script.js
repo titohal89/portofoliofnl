@@ -10,6 +10,8 @@ fetch('data/profile.json')
         document.getElementById('telepon-user').textContent = data.phone;
         // Membuat fungsi KLIK email di sebelah tombol CV (mailto:)
         document.getElementById('link-email-profil').href = `mailto:${data.email}`;
+        // Membuat fungsi KLIK LinkedIn di sebelah tombol CV
+        document.getElementById('link-linkedin-profil').href = data.linkedin;
     });
 
 // 2. Memuat Data Pengalaman Kerja
