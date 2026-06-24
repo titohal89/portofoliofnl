@@ -330,3 +330,44 @@ footer p {
         justify-content: center; /* Mengetengahkan tombol di layar kecil */
     }
 }
+
+/* ------------------ BAR KEAHLIAN ------------------ */
+.keahlian-profil {
+    margin-bottom: 25px; /* Memberi jarak dengan tombol CV di bawahnya */
+}
+
+.bar-item {
+    margin-bottom: 12px;
+}
+
+.label-keahlian {
+    display: block;
+    font-size: 0.95rem;
+    color: #2c3e50;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+/* Latar belakang bar (warna abu-abu) */
+.bar-latar {
+    width: 100%;
+    height: 10px;
+    background-color: #dcdde1;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+/* Warna pengisi bar (warna biru) dan pengaturan animasinya */
+.bar-isi {
+    height: 100%;
+    background-color: #3498db;
+    border-radius: 5px;
+    transform-origin: left; /* Memastikan animasi dimulai dari kiri */
+    animation: isiBar 1.5s ease-out forwards; /* Efek animasi terisi perlahan */
+}
+
+/* Kunci Animasi Bergerak dari 0% ke persentase yang ditentukan */
+@keyframes isiBar {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+}
