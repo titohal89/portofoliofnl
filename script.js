@@ -10,32 +10,25 @@ fetch('data/profile.json')
         document.getElementById('telepon-user').textContent = data.phone;
     });
 
-// 2. Memuat Data Pengalaman Kerja
+// 2. Memuat Data Pengalaman Kerja (Diubah menjadi Paragraf)
 fetch('data/experience.json')
     .then(response => response.json())
     .then(data => {
         const wadah = document.getElementById('wadah-pengalaman');
         data.forEach(item => {
-            // Membuat elemen kartu baru untuk setiap pengalaman
             const kartu = document.createElement('div');
             kartu.className = 'kartu-riwayat';
             
-            // Menyusun teks tanggung jawab menjadi list (li)
-            let listTanggungJawab = '';
-            item.responsibilities.forEach(tugas => {
-                listTanggungJawab += `<li>${tugas}</li>`;
-            });
-
             kartu.innerHTML = `
                 <h4>${item.company}</h4>
                 <h5>${item.role} | ${item.period}</h5>
-                <ul>${listTanggungJawab}</ul>
+                <p style="margin-top: 10px; color: #555; text-align: justify;">${item.description}</p>
             `;
             wadah.appendChild(kartu);
         });
     });
 
-// 3. Memuat Data Pendidikan
+// 3. Memuat Data Pendidikan (Diubah menjadi Paragraf)
 fetch('data/education.json')
     .then(response => response.json())
     .then(data => {
@@ -44,19 +37,19 @@ fetch('data/education.json')
             const kartu = document.createElement('div');
             kartu.className = 'kartu-riwayat';
             
-            // Mengecek apakah ada gambar logo di JSON
             const gambarLogo = item.logo ? `<img src="${item.logo}" class="logo-pendidikan">` : '';
 
             kartu.innerHTML = `
                 ${gambarLogo}
                 <h4>${item.institution}</h4>
                 <h5>${item.degree} | ${item.period}</h5>
+                <p style="margin-top: 10px; color: #555; text-align: justify;">${item.description}</p>
             `;
             wadah.appendChild(kartu);
         });
     });
 
-// 4. Memuat Data Proyek
+// 4. Memuat Data Proyek (Menambahkan perataan teks)
 fetch('data/projects.json')
     .then(response => response.json())
     .then(data => {
@@ -66,7 +59,7 @@ fetch('data/projects.json')
             kartu.className = 'kartu-proyek';
             kartu.innerHTML = `
                 <h4>${item.title}</h4>
-                <p><strong>${item.year}</strong> - ${item.description}</p>
+                <p style="text-align: justify;"><strong>${item.year}</strong> - ${item.description}</p>
             `;
             wadah.appendChild(kartu);
         });
