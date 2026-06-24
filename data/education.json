@@ -3,12 +3,14 @@
     "institution": "Politeknik Negeri Semarang",
     "degree": "Diploma 3 Teknik Elektro",
     "period": "2023 - 2026",
-    "logo": "images/polines.png"
+    "logo": "images/polines.png",
+    "description": "Saat ini sedang menempuh pendidikan tingkat diploma dengan fokus pada rekayasa kelistrikan, sistem kendali otomasi, dan pemrograman mikrokontroler. Selama masa studi, saya aktif melakukan riset dan mengembangkan berbagai proyek inovatif berbasis Internet of Things (IoT) yang relevan dengan kebutuhan industri."
   },
   {
     "institution": "SMK Negeri 2 Pati",
     "degree": "Teknik Audio Video",
     "period": "2020 - 2023",
-    "logo": "images/smk.png"
+    "logo": "images/smk.png",
+    "description": "Menyelesaikan pendidikan kejuruan pada bidang Teknik Audio Video. Di instansi ini, saya membangun fondasi yang kuat mengenai elektronika dasar, perakitan sirkuit keras, serta analisis dan pemecahan masalah pada berbagai perangkat audio visual."
   }
 ]
