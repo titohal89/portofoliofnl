@@ -8,8 +8,10 @@ fetch('data/profile.json')
         document.getElementById('lokasi-user').textContent = data.location;
         document.getElementById('email-user').textContent = data.email;
         document.getElementById('telepon-user').textContent = data.phone;
+        
         // Membuat fungsi KLIK email di sebelah tombol CV (mailto:)
         document.getElementById('link-email-profil').href = `mailto:${data.email}`;
+        
         // Membuat fungsi KLIK LinkedIn di sebelah tombol CV
         document.getElementById('link-linkedin-profil').href = data.linkedin;
     });
@@ -26,11 +28,14 @@ fetch('data/experience.json')
             // Mengecek apakah ada gambar dokumentasi di JSON
             const gambarPengalaman = item.image ? `<img src="${item.image}" class="foto-pengalaman">` : '';
 
+            // Perubahan: Menambahkan <div class="konten-riwayat"> untuk membungkus teks
             kartu.innerHTML = `
                 ${gambarPengalaman}
-                <h4>${item.company}</h4>
-                <h5>${item.role} | ${item.period}</h5>
-                <p style="margin-top: 10px; color: #555; text-align: justify;">${item.description}</p>
+                <div class="konten-riwayat">
+                    <h4>${item.company}</h4>
+                    <h5>${item.role} | ${item.period}</h5>
+                    <p style="margin-top: 10px; color: #555; text-align: justify;">${item.description}</p>
+                </div>
             `;
             wadah.appendChild(kartu);
         });
@@ -47,11 +52,14 @@ fetch('data/education.json')
             
             const gambarLogo = item.logo ? `<img src="${item.logo}" class="logo-pendidikan">` : '';
 
+            // Perubahan: Menambahkan <div class="konten-riwayat"> untuk membungkus teks
             kartu.innerHTML = `
                 ${gambarLogo}
-                <h4>${item.institution}</h4>
-                <h5>${item.degree} | ${item.period}</h5>
-                <p style="margin-top: 10px; color: #555; text-align: justify;">${item.description}</p>
+                <div class="konten-riwayat">
+                    <h4>${item.institution}</h4>
+                    <h5>${item.degree} | ${item.period}</h5>
+                    <p style="margin-top: 10px; color: #555; text-align: justify;">${item.description}</p>
+                </div>
             `;
             wadah.appendChild(kartu);
         });
