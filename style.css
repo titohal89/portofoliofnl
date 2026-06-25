@@ -105,6 +105,115 @@ header {
     background-color: #2980b9;
 }
 
+/* Mengatur agar tombol CV dan ikon Email berdampingan */
+.aksi-profil {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Jarak antara tombol CV dan ikon email */
+}
+
+/* Desain Bentuk Ikon Email */
+.ikon-email-animasi {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    background-color: #e74c3c; /* Warna merah khas email */
+    color: white;
+    border-radius: 50%; /* Membuatnya bulat */
+    font-size: 1.5rem;
+    text-decoration: none;
+    animation: denyut 1.5s infinite; /* Memanggil efek animasi di bawah */
+}
+
+/* Efek saat ikon disentuh kursor mouse */
+.ikon-email-animasi:hover {
+    background-color: #c0392b;
+    animation: none; /* Animasi berhenti agar mudah diklik */
+    transform: scale(1.1); /* Logo sedikit membesar */
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+/* Desain Bentuk Ikon LinkedIn */
+.ikon-linkedin-animasi {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    background-color: #0077b5; /* Warna biru resmi LinkedIn */
+    color: white;
+    border-radius: 50%; /* Membuat bentuk bulat sempurna */
+    font-size: 1.3rem;
+    text-decoration: none;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Efek saat ikon LinkedIn disentuh kursor mouse */
+.ikon-linkedin-animasi:hover {
+    background-color: #005582; /* Warna biru menjadi sedikit lebih gelap */
+    transform: scale(1.1) rotate(15deg); /* Tombol membesar 10% dan berputar 15 derajat */
+}
+
+/* Kunci Animasi CSS (Keyframes) untuk efek Berdenyut/Memancar */
+@keyframes denyut {
+    0% {
+        box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7);
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0 0 0 15px rgba(231, 76, 60, 0); /* Pancaran warna memudar */
+        transform: scale(1.05); /* Sedikit membesar */
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(231, 76, 60, 0);
+        transform: scale(1);
+    }
+}
+
+/* ------------------ BAR KEAHLIAN ------------------ */
+.keahlian-profil {
+    margin-bottom: 25px; /* Memberi jarak dengan tombol CV di bawahnya */
+}
+
+.bar-item {
+    margin-bottom: 12px;
+}
+
+.label-keahlian {
+    display: block;
+    font-size: 0.95rem;
+    color: #2c3e50;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+/* Latar belakang bar (warna abu-abu) */
+.bar-latar {
+    width: 100%;
+    height: 10px;
+    background-color: #dcdde1;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+/* Warna pengisi bar (warna biru) dan pengaturan animasinya */
+.bar-isi {
+    height: 100%;
+    background-color: #3498db;
+    border-radius: 5px;
+    transform-origin: left; /* Memastikan animasi dimulai dari kiri */
+    animation: isiBar 1.5s ease-out forwards; /* Efek animasi terisi perlahan */
+}
+
+/* Kunci Animasi Bergerak dari 0% ke persentase yang ditentukan */
+@keyframes isiBar {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+}
+
 /* ------------------ PENGATURAN UMUM UNTUK SETIAP BAGIAN (SECTION) ------------------ */
 section {
     padding: 60px 5%;
@@ -157,10 +266,11 @@ section h3 {
     transform: translateX(5px); /* Efek bergeser sedikit ke kanan saat disentuh */
 }
 
-/* Penyeragaman Ukuran Logo Magang & Kampus */
+/* Penyeragaman Ukuran Logo Magang & Kampus - DIPERBAIKI */
 .foto-pengalaman, .logo-pendidikan {
-    width: 90px;
-    height: 90px;
+    width: 150px !important;
+    height: 110px !important;
+    min-width: 150px;
     object-fit: contain; /* Memastikan logo tidak terpotong */
     border-radius: 8px;
     background-color: #f8f9fa; /* Latar belakang abu-abu sangat muda */
@@ -170,14 +280,17 @@ section h3 {
     margin-bottom: 0; 
 }
 
-/* Area khusus teks di sebelah kanan logo */
+/* Area khusus teks di sebelah kanan logo - DIPERBAIKI */
 .konten-riwayat {
     flex: 1; /* Membuat teks mengisi sisa ruang yang ada */
+    min-width: 0; /* Mencegah teks terhimpit */
 }
 
 .konten-riwayat h4 {
     color: #2c3e50;
     font-size: 1.3rem;
+    line-height: 1.3;
+    margin-bottom: 5px;
 }
 
 .konten-riwayat h5 {
@@ -187,18 +300,6 @@ section h3 {
     font-size: 0.95rem;
 }
 
-/* Responsif untuk Layar HP (Gambar kembali ke atas teks) */
-@media (max-width: 768px) {
-    .kartu-riwayat {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-    .kolom h3 {
-        display: block;
-        text-align: center;
-    }
-}
 /* ------------------ BAGIAN PROYEK ------------------ */
 .grid-proyek {
     display: grid;
@@ -260,6 +361,12 @@ section h3 {
     }
 }
 
+/* Efek tambahan saat kartu proyek di-hover */
+.kartu-proyek:hover .ikon-proyek {
+    transform: scale(1.1) rotate(3deg); /* Ikon sedikit membesar dan miring 3 derajat */
+    transition: transform 0.3s ease;
+}
+
 /* Area khusus teks di bagian bawah kartu */
 .konten-proyek {
     padding: 25px;
@@ -293,7 +400,7 @@ footer p {
     color: #bdc3c7;
 }
 
-/* ------------------ TAMPILAN RESPONSIf (Khusus Layar HP) ------------------ */
+/* ------------------ TAMPILAN RESPONSIF (Khusus Layar HP) ------------------ */
 @media (max-width: 768px) {
     .profil-container {
         flex-direction: column;
@@ -313,137 +420,19 @@ footer p {
         width: 180px;
         height: 180px;
     }
-}
-
-/* Desain Foto Dokumentasi Pengalaman */
-.foto-pengalaman {
-    width: 100%;
-    height: 150px; /* Dibuat sedikit lebih pendek agar proporsional untuk logo */
-    object-fit: contain; /* KUNCI: Agar logo pas di dalam kotak dan tidak terpotong */
-    border-radius: 4px;
-    margin-bottom: 15px;
-    padding: 10px; /* Memberi jarak aman di sekitar logo */
-    background-color: #fdfdfd; /* Memberi warna latar putih bersih */
-}
-
-/* Mengatur agar tombol CV dan ikon Email berdampingan */
-.aksi-profil {
-    display: flex;
-    align-items: center;
-    gap: 20px; /* Jarak antara tombol CV dan ikon email */
-}
-
-/* Desain Bentuk Ikon Email */
-.ikon-email-animasi {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 45px;
-    height: 45px;
-    background-color: #e74c3c; /* Warna merah khas email */
-    color: white;
-    border-radius: 50%; /* Membuatnya bulat */
-    font-size: 1.5rem;
-    text-decoration: none;
-    animation: denyut 1.5s infinite; /* Memanggil efek animasi di bawah */
-}
-
-/* Efek saat ikon disentuh kursor mouse */
-.ikon-email-animasi:hover {
-    background-color: #c0392b;
-    animation: none; /* Animasi berhenti agar mudah diklik */
-    transform: scale(1.1); /* Logo sedikit membesar */
-    transition: transform 0.3s, background-color 0.3s;
-}
-
-/* Kunci Animasi CSS (Keyframes) untuk efek Berdenyut/Memancar */
-@keyframes denyut {
-    0% {
-        box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7);
-        transform: scale(1);
-    }
-    50% {
-        box-shadow: 0 0 0 15px rgba(231, 76, 60, 0); /* Pancaran warna memudar */
-        transform: scale(1.05); /* Sedikit membesar */
-    }
-    100% {
-        box-shadow: 0 0 0 0 rgba(231, 76, 60, 0);
-        transform: scale(1);
-    }
-}
-
-/* Perbaikan untuk layar HP agar tetap rapi */
-@media (max-width: 768px) {
+    
     .aksi-profil {
         justify-content: center; /* Mengetengahkan tombol di layar kecil */
     }
-}
 
-/* ------------------ BAR KEAHLIAN ------------------ */
-.keahlian-profil {
-    margin-bottom: 25px; /* Memberi jarak dengan tombol CV di bawahnya */
-}
-
-.bar-item {
-    margin-bottom: 12px;
-}
-
-.label-keahlian {
-    display: block;
-    font-size: 0.95rem;
-    color: #2c3e50;
-    font-weight: 600;
-    margin-bottom: 5px;
-}
-
-/* Latar belakang bar (warna abu-abu) */
-.bar-latar {
-    width: 100%;
-    height: 10px;
-    background-color: #dcdde1;
-    border-radius: 5px;
-    overflow: hidden;
-}
-
-/* Warna pengisi bar (warna biru) dan pengaturan animasinya */
-.bar-isi {
-    height: 100%;
-    background-color: #3498db;
-    border-radius: 5px;
-    transform-origin: left; /* Memastikan animasi dimulai dari kiri */
-    animation: isiBar 1.5s ease-out forwards; /* Efek animasi terisi perlahan */
-}
-
-/* Kunci Animasi Bergerak dari 0% ke persentase yang ditentukan */
-@keyframes isiBar {
-    from { transform: scaleX(0); }
-    to { transform: scaleX(1); }
-}
-
-/* Efek tambahan saat kartu proyek di-hover */
-.kartu-proyek:hover .ikon-proyek {
-    transform: scale(1.1) rotate(3deg); /* Ikon sedikit membesar dan miring 3 derajat */
-    transition: transform 0.3s ease;
-}
-
-/* Desain Bentuk Ikon LinkedIn */
-.ikon-linkedin-animasi {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 45px;
-    height: 45px;
-    background-color: #0077b5; /* Warna biru resmi LinkedIn */
-    color: white;
-    border-radius: 50%; /* Membuat bentuk bulat sempurna */
-    font-size: 1.3rem;
-    text-decoration: none;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-/* Efek saat ikon LinkedIn disentuh kursor mouse */
-.ikon-linkedin-animasi:hover {
-    background-color: #005582; /* Warna biru menjadi sedikit lebih gelap */
-    transform: scale(1.1) rotate(15deg); /* Tombol membesar 10% dan berputar 15 derajat */
+    .kartu-riwayat {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .kolom h3 {
+        display: block;
+        text-align: center;
+    }
 }
