@@ -1,4 +1,4 @@
-// 1. Memuat Data Profil
+// 1. Memuat Data Profill
 fetch('data/profile.json')
     .then(response => response.json())
     .then(data => {
