@@ -121,50 +121,84 @@ section h3 {
     background-color: #ecf0f1;
 }
 
-/* ------------------ BAGIAN PENGALAMAN & PENDIDIKAN (Dua Kolom) ------------------ */
+/* ------------------ BAGIAN PENGALAMAN & PENDIDIKAN (Kartu Horizontal) ------------------ */
+/* Mengubah dari 2 kolom menjadi 1 kolom yang ditengah (mirip CV) */
 .container-dua-kolom {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column; 
     gap: 40px;
-    justify-content: space-between;
-}
-
-.kolom {
-    flex: 1;
-    min-width: 300px;
+    max-width: 900px; /* Membatasi lebar agar teks tidak terlalu panjang ke samping */
+    margin: 0 auto; /* Menengahkan kontainer */
 }
 
 .kolom h3 {
     text-align: left;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+    display: inline-block;
 }
 
+/* Desain Kartu Utama (Gambar di kiri, teks di kanan) */
 .kartu-riwayat {
     background-color: white;
-    padding: 20px;
+    padding: 25px;
     border-left: 4px solid #3498db;
-    border-radius: 4px;
+    border-radius: 8px;
     margin-bottom: 20px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    display: flex;
+    align-items: flex-start;
+    gap: 25px; /* Jarak antara logo dan teks */
+    transition: transform 0.3s;
 }
 
-.kartu-riwayat h4 {
+.kartu-riwayat:hover {
+    transform: translateX(5px); /* Efek bergeser sedikit ke kanan saat disentuh */
+}
+
+/* Penyeragaman Ukuran Logo Magang & Kampus */
+.foto-pengalaman, .logo-pendidikan {
+    width: 90px;
+    height: 90px;
+    object-fit: contain; /* Memastikan logo tidak terpotong */
+    border-radius: 8px;
+    background-color: #f8f9fa; /* Latar belakang abu-abu sangat muda */
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    flex-shrink: 0; /* Mencegah logo mengecil (gepeng) karena tertekan teks */
+    margin-bottom: 0; 
+}
+
+/* Area khusus teks di sebelah kanan logo */
+.konten-riwayat {
+    flex: 1; /* Membuat teks mengisi sisa ruang yang ada */
+}
+
+.konten-riwayat h4 {
     color: #2c3e50;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
 }
 
-.kartu-riwayat h5 {
+.konten-riwayat h5 {
     color: #7f8c8d;
     margin-bottom: 10px;
     font-weight: normal;
+    font-size: 0.95rem;
 }
 
-.logo-pendidikan {
-    width: 60px;
-    height: auto;
-    margin-bottom: 10px;
+/* Responsif untuk Layar HP (Gambar kembali ke atas teks) */
+@media (max-width: 768px) {
+    .kartu-riwayat {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .kolom h3 {
+        display: block;
+        text-align: center;
+    }
 }
-
 /* ------------------ BAGIAN PROYEK ------------------ */
 .grid-proyek {
     display: grid;
